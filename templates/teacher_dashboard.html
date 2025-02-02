@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Teacher Dashboard</h1>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Assignments</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.title }}</td>
+                    <td>{{ assignment.due_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('create_assignment') }}" class="btn btn-primary">Post New Assignment</a>
+    </div>
+</div>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Student List with Rank</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Admission Number</th>
+                    <th>Average Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student_data in student_performance %}
+                <tr>
+                    <td>{{ loop.index }}</td> <!-- Rank based on position in sorted list -->
+                    <td>{{ student_data.student.username }}</td>
+                    <td>{{ student_data.student.admission_number }}</td>
+                    <td>{{ student_data.average_score | round(2) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Attendance</h5>
+        <a href="{{ url_for('mark_attendance') }}" class="btn btn-secondary">Mark Attendance</a>
+    </div>
+</div>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Student Remarks</h5>
+        <a href="{{ url_for('add_remark') }}" class="btn btn-info">Add Remark</a>
+    </div>
+</div>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h5 class="card-title">Add Student Marks</h5>
+        <a href="{{ url_for('add_mark') }}" class="btn btn-primary">Add Marks</a>
+    </div>
+</div>
+
+{% endblock %}

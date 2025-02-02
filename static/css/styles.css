@@ -1,0 +1,158 @@
+/* Global Styles */
+body {
+    background-color: #f8f9fa; /* Light background for the whole page */
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand, .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Flash Message Styling */
+.flash-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.flash-message-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Card and Table Styling */
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Container adjustments for login page */
+.container.mt-3 {
+    max-width: 400px;
+    padding: 1rem;
+    margin-top: 2.5rem !important;
+}
+
+/* Login Card Styling */
+.card.shadow-lg {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+h2.text-center {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #343a40;
+    margin-bottom: 1.2rem;
+}
+
+/* Input and button styling */
+.form-control {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Error message styling */
+.text-danger {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Footer note styling */
+.text-center p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .container.mt-3 {
+        max-width: 90%; /* Expands the login form on smaller screens */
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    .navbar-brand, .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Action Buttons Styling */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping if there's not enough space */
+    gap: 0.5rem; /* Small gap between buttons */
+}
+
+.action-buttons .btn {
+    padding: 0.4rem 0.6rem; /* Adjust padding for smaller button size */
+    font-size: 0.85rem; /* Smaller font size */
+}
+
+/* Responsive Styling for Table and Action Buttons */
+@media (max-width: 768px) {
+    .table {
+        display: block; /* Makes the table scrollable on small screens */
+        overflow-x: auto;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    /* Stack buttons vertically on smaller screens */
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .action-buttons .btn {
+        width: auto; /* Ensures buttons do not stretch on smaller screens */
+    }
+}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Student Marks</h1>
+
+<div class="card my-4">
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('add_mark') }}">
+            <div class="form-group">
+                <label for="student_id">Select Student</label>
+                <select class="form-control" id="student_id" name="student_id" required>
+                    <option value="">-- Select Student --</option>
+                    {% if students %}
+                        {% for student in students %}
+                            <option value="{{ student.id }}">{{ student.user.username }}</option> <!-- Access user.username -->
+                        {% endfor %}
+                    {% else %}
+                        <option value="">No students available</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="score">Score</label>
+                <input type="number" class="form-control" id="score" name="score" required>
+            </div>
+            <div class="form-group">
+                <label for="test_type">Test Type</label>
+                <select class="form-control" id="test_type" name="test_type" required>
+                    <option value="Assignment">Assignment</option>
+                    <option value="CAT">CAT</option>
+                    <option value="End Term">End Term</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Marks</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

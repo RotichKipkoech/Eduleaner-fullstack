@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create Assignment</h1>
+
+<form method="POST" enctype="multipart/form-data"> <!-- Added enctype -->
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="due_date">Due Date</label>
+        <input type="date" class="form-control" id="due_date" name="due_date" required>
+    </div>
+    <div class="form-group">
+        <label for="student_id">Select Student</label>
+        <select class="form-control" id="student_id" name="student_id" required>
+            <option value="">Choose a student</option>
+            {% for student in students %}
+                <option value="{{ student.id }}">{{ student.user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="file">Upload Assignment File</label>
+        <input type="file" class="form-control-file" id="file" name="file"> <!-- File input -->
+    </div>
+    <button type="submit" class="btn btn-primary">Create Assignment</button>
+</form>
+
+<a href="{{ url_for('teacher_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+{% endblock %}

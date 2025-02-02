@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Mark Attendance{% endblock %}
+
+{% block content %}
+<h1>Mark Attendance</h1>
+
+<!-- Form to mark attendance -->
+<form method="POST">
+    <div class="form-group">
+        <label for="student_id">Select Student:</label>
+        <select id="student_id" name="student_id" class="form-control" required>
+            <option value="">-- Select a Student --</option> <!-- Placeholder option -->
+            {% for student in students %}
+                <option value="{{ student.id }}">{{ student.user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Attendance Status:</label>
+        <select id="status" name="status" class="form-control" required>
+            <option value="">-- Select Status --</option> <!-- Placeholder option -->
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Late">Late</option>
+            <option value="Excused">Excused</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Attendance</button>
+</form>
+
+{% if messages %}
+    <div class="alert alert-info mt-3">
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% endblock %}

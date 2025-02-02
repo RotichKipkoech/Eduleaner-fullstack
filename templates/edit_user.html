@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit User: {{ user.username }}</h1>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="password">New Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password (leave blank to keep current)">
+    </div>
+    <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" id="role" name="role">
+            <option value="Admin" {% if user.role == 'Admin' %}selected{% endif %}>Admin</option>
+            <option value="Teacher" {% if user.role == 'Teacher' %}selected{% endif %}>Teacher</option>
+            <option value="Parent" {% if user.role == 'Parent' %}selected{% endif %}>Parent</option>
+            <option value="Finance" {% if user.role == 'Finance' %}selected{% endif %}>Finance</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}

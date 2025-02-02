@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Create Student</h2>
+<form method="POST" action="{{ url_for('create_student') }}">
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.course_name.label(class="form-label") }}
+        {{ form.course_name(class="form-control") }}
+    </div>
+    
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}
