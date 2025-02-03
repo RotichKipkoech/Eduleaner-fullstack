@@ -113,6 +113,13 @@ h2.text-center {
     margin-top: 1rem;
 }
 
+.performance-chart {
+    width: 100% !important;  /* Makes the chart responsive */
+    max-width: 400px;        /* Maximum width for the chart */
+    height: auto !important; /* Keeps the aspect ratio */
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 576px) {
     .container.mt-3 {
