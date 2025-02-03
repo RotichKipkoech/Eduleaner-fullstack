@@ -59,7 +59,7 @@
                 <tbody>
                     {% for fee in fees %}
                     <tr>
-                        <td>{{ fee.student.name }}</td>
+                        <td>{{ fee.student.user.username }}</td>
                         <td>{{ fee.amount_due }}</td>
                         <td>{{ fee.amount_paid }}</td>
                         <td>{{ fee.status }}</td>
